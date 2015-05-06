@@ -1,6 +1,6 @@
 {
   "name": "ios-deploy",
-  "version": "1.5.0",
+  "version": "1.5.0-only-uninstall",
   "description": "launch iOS apps iOS devices from the command line (Xcode 6)",
   "main": "ios-deploy",
   "scripts": {
@@ -9,7 +9,7 @@
   "bin" : "./ios-deploy" ,
   "repository": {
     "type": "git",
-    "url": "https://github.com/phonegap/ios-deploy"
+    "url": "https://github.com/ergovia-mobile/ios-deploy"
   },
   "keywords": [
     "ios-deploy",
