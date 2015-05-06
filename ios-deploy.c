@@ -1526,7 +1526,7 @@ void handle_device(AMDeviceRef device) {
         }
     }
 
-    if(install) {
+    if(install && !uninstall) {
         printf("------ Install phase ------\n");
         printf("[  0%%] Found %s connected through %s, beginning install\n", CFStringGetCStringPtr(device_full_name, CFStringGetSystemEncoding()), CFStringGetCStringPtr(device_interface_name, CFStringGetSystemEncoding()));
 
@@ -1587,13 +1587,16 @@ void handle_device(AMDeviceRef device) {
         printf("[100%%] Installed package %s\n", app_path);
     }
 
-    if (!debug)
-        exit(0); // no debug phase
+    if(!uninstall) {
+        if (!debug)
+            exit(0); // no debug phase
 
-    if (justlaunch)
-        launch_debugger_and_exit(device, url);
-    else
-        launch_debugger(device, url);
+        if (justlaunch)
+            launch_debugger_and_exit(device, url);
+        else
+            launch_debugger(device, url);
+    }
+
 }
 
 void device_callback(struct am_device_notification_callback_info *info, void *arg) {
