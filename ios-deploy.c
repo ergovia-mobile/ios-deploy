@@ -1524,6 +1524,8 @@ void handle_device(AMDeviceRef device) {
             assert(AMDeviceStopSession(device) == 0);
             assert(AMDeviceDisconnect(device) == 0);
         }
+
+        CFRelease(path);
     }
 
     if(install && !uninstall) {
