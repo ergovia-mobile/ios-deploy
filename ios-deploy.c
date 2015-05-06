@@ -1587,9 +1587,10 @@ void handle_device(AMDeviceRef device) {
         printf("[100%%] Installed package %s\n", app_path);
     }
 
+    if (!debug)
+        exit(0); // no debug phase
+
     if(!uninstall) {
-        if (!debug)
-            exit(0); // no debug phase
 
         if (justlaunch)
             launch_debugger_and_exit(device, url);
